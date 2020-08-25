@@ -1,0 +1,75 @@
+{% from 'tools.j2' import homeButton %}
+{% extends "base.j2" %}
+
+{%- block title -%}
+{{g.title}}
+{%- endblock title -%}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/glyph-home.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/listeCartes.css') }}">
+{% endblock stylesheets %}
+
+{% block body %}
+    {{ homeButton() }}
+    <nav>
+        {% for pannel in g.html -%}
+        <div id="{{pannel.nomId}}" class="pannelType">
+            <div id="entete">
+            {{pannel.nomHTML}}
+            </div>
+            <div id="inventaire">
+                {% for c in pannel.cartes -%}
+                <div>
+                    <img id="image" src="data:image;base64,{{c.image}}">
+                    <div id="nom">{{c['carte'].nom}}</div><div id="nombre">{{c['carte'].getNombre()}}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </nav>
+    <div id="infos">
+        <div id="total">
+        Nombre total de cartes: {{g.total}}
+        </div>
+        <div id="remarque">
+        À deux joueurs, ôtez une <em>attaque</em> de chaque sorte
+        </div>
+    </div>
+    {{ homeButton() }}
+{% endblock body %}
+
+{# Choix de la police (j'hésite entre 2) #}
+{# ------------------------------------- #}
+{# 
+<footer style="justify-content: center; display:flex; flex-basis: 100%; border: 3px solid; font-size: 2em;">
+<div style="margin-right:4px;">Police Actuelle: </div><div id="police"></div>
+<button id="bPolice" type="button" onclick="myClick()" style="margin-left:10px;">
+Basculer vers ""
+</button>
+<script>
+function getPolice() {
+    res= window.getComputedStyle( document.getElementsByTagName('body')[0], null).getPropertyValue( 'font-family');
+    res=res.replace(/['"]+/g, '');
+    return res;
+}
+function refreshPolice() {
+    document.getElementById("police").textContent=getPolice();
+}
+var choix=['Copperplate','Bradley Hand'];
+function refreshButton() {
+    b=document.getElementById('bPolice');
+    s= (getPolice()==choix[0])? choix[1] : choix[0] ;
+    b.textContent='Basculer vers "'+s+'"';
+}
+refreshPolice();
+refreshButton();
+function myClick() {
+    s= (getPolice()==choix[0])? choix[1] : choix[0] ;
+    document.getElementsByTagName('body')[0].style.fontFamily=s;
+    refreshPolice();
+    refreshButton();
+}
+</script>
+</footer> 
+#}

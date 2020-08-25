@@ -1,0 +1,21 @@
+#sabot {
+    display: grid;
+    grid-template-areas:    "sabotPile sabotDefausse"
+                            "cartesRestantes ."
+                            ;
+    grid-template-rows: max-content;
+    grid-template-columns: max-content;
+}
+#sabot > .pile {
+    grid-area: sabotPile
+}
+#sabot > .defausse {
+    grid-area: sabotDefausse
+}
+#sabot > img {
+    margin: var(--margin-cartes);
+}
+#cartesRestantes {
+    grid-area: cartesRestantes;
+    margin: auto;
+}

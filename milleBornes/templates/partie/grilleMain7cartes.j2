@@ -1,0 +1,7 @@
+
+<div id="grilleMain7cartes">
+    <img class="carte7" 
+        src="{{url_for('static', filename='images/cartes/' + getFileNameFromObjectCarte(g.main[6]))}}"
+        alt="{{g.main[6].nom}}">
+    {% include "partie/grilleMain6cartes.j2" %} {# definit grilleMain6cartesWrapper #}
+</div>

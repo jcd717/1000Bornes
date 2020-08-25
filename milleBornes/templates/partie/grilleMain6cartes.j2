@@ -1,0 +1,9 @@
+<div id="grilleMain6cartesWrapper" style="display: flex; flex-direction: row;">
+    <div id="grilleMain6cartes">
+        {% for i in range(6) %}
+            <img class="_{{i+1}}" 
+                src="{{url_for('static',filename='images/cartes/' + getFileNameFromObjectCarte(g.main[i]) )}}" 
+                alt="{{g.main[i].nom}}">
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,5 @@
+
+graft milleBornes/static
+graft milleBornes/templates
+graft milleBornes/regles.md
+global-exclude *.pyc

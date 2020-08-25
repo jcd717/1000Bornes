@@ -1,0 +1,82 @@
+
+body {
+    border: 0.7rem ridge green;
+    border-radius: 1rem ;
+    padding: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: Copperplate;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+
+}
+
+.pannelType { /* #parades, #attaques ... */
+    margin: auto;
+    border: 3px solid;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#parades {
+    color: darkgreen;
+}
+#attaques {
+    color: red;
+}
+#bottes {
+    color: blue;
+}
+#etapes {
+    color: darkblue;
+}
+
+#entete {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-bottom: solid;
+}
+
+#inventaire > div {
+    display: grid;
+    grid-template-areas: "image nom nombre";
+    grid-template-columns: auto auto 3ch;
+    align-items: center;
+
+    font-size: 1.5em;
+}
+#nom {
+    grid-area: nom;
+    white-space: pre;
+    text-align: right;
+}
+#nombre {
+    grid-area: nombre;
+    text-align: right;
+}
+#image {
+    grid-area: image;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    object-fit: none;
+    justify-self: left;
+}
+#infos {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em;
+    font-size: 1.5em;
+}
+#remarque {
+    color: red;
+}

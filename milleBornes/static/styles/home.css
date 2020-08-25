@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "Nanum Brush Script";
+    src: 
+        local("Nanum Brush Script"),
+        url('../fonts/NanumBrushScript-Regular.ttf') format('truetype');
+}
+
+body {
+    /* border: 0.7rem ridge green;
+    border-radius: 1rem ;
+    padding: 0.5rem; */
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+#boite {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+#container-menu {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: auto;
+    align-items: center;
+}
+#menu {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    font-family: Nanum Brush Script;
+    font-size: 2em;
+
+    border: 0.5rem ridge;
+    border-radius: 0.9rem ;
+    padding: 0.7rem;
+
+}
+.aTagLikeButton {
+    padding: 0.5rem 0.4rem;
+    -webkit-appearance: button;
+    -moz-appearance:    button;
+    appearance:         button;
+    text-decoration: none;
+
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    color: blue;
+
+    overflow-y: auto;
+}
+.aTagLikeButton:hover {
+    color: green;
+}
+#milleBornes {
+    text-align: center;
+    font-size: 8em;
+    font-family: DIN Condensed;
+}
+#un {
+    color: red;
+}
+#zero1 {
+    color: blue;
+}
+#zero2 {
+    color: green;
+}
+#zero3 {
+    color: violet;
+}
+.image-dos {
+    background: url('../images/new-prioritaire.png') no-repeat;  
+}
+.image-dos > img:hover {
+    opacity: 0;
+    -webkit-transition:  opacity 1s ease;
+    -moz-transition:  opacity 1s ease;
+    -o-transition: opacity 1s ease;
+    transition:   opacity 1s ease;
+}
+.image-dos > img {    
+    opacity: 1;
+    -webkit-transition:  opacity 1s ease;
+    -moz-transition:  opacity 1s ease;
+    transition:   opacity 1s ease;
+}
+@media only screen and (max-width : 899px) { /* siginfie un mobile et width<899px */
+    .image-dos > img  {
+        display: none;
+    }
+}
+
+#licence {
+    margin-left: auto;
+}

@@ -1,0 +1,40 @@
+{% extends "base.j2" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/home.css') }}">
+{% endblock stylesheets %}
+
+{% block body %}
+
+<div id="boite">
+    <img src="{{ url_for('static', filename='images/boite.png') }}" >
+</div>
+<div id="container-menu">
+    <div class="image-dos">
+        <img  src="{{ url_for('static', filename='images/dos.png') }}" >
+    </div>
+    <div id="menu">
+        {# <a class="aTagLikeButton" href="{{url_for('home.home')}}">Continuer la partie</a> #}
+        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=4)}}">Nouvelle Partie: 4 joueurs</a>
+        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=2)}}">Nouvelle Partie: 2 joueurs</a>
+        <a class="aTagLikeButton" href="{{url_for('listeCartes.listeCartes')}}">{{g.listeCartes}}</a>
+        <a class="aTagLikeButton" href="{{url_for('regles.regles')}}">REGLES du JEU</a>
+    </div>
+    <div class="image-dos">
+        <img  src="{{ url_for('static', filename='images/dos.png') }}" >
+    </div>
+</div>
+<div id="milleBornes">
+    {# les commentaires HTML sont là pour simuler que tous <span> sont écrits sur la même ligne #}
+        <span id="un" class="chiffre">1</span><!--
+    --><span id="zero1" class="chiffre">0</span><!--
+    --><span id="zero2" class="chiffre">0</span><!--
+    --><span id="zero3" class="chiffre">0</span>
+       <span id="bornes">BORNES</span>
+</div>
+<div id="licence">
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">
+        <img  src="{{ url_for('static', filename='images/by-nc-sa.svg') }}" title="Pour Josette">
+    </a>
+</div>
+{% endblock body %}

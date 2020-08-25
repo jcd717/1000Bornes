@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "fontawesome";
+    src: 
+        url('../fonts/FontAwesome.woff') format('woff');
+}
+
+#div-home {
+    display: flex;
+    justify-content: center;
+}
+.glyph-home {
+    font-family: fontawesome;
+    font-style: unset;
+    font-size: 1.7em;
+    color: white;
+    background-color: gray;
+    text-decoration: none;
+    padding: 0.2em;
+}
+.glyph-home:hover{
+    background-color: black;
+}

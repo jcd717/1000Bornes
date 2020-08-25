@@ -1,0 +1,17 @@
+#grilleMain7cartes {
+    display: grid;
+    grid-template-areas:    "grilleMain7carte7"
+                            "grilleMain7grilleMain6cartes"
+                            ;
+    grid-template-rows: max-content;
+    grid-template-columns: max-content;
+}
+#grilleMain7cartes > .carte7 {
+    grid-area: grilleMain7carte7;
+    margin: auto;
+    margin-bottom: var(--margin-cartes);
+
+}
+#grilleMain7cartes > #grilleMain6cartesWrapper {
+    grid-area: grilleMain7grilleMain6cartes;
+}
