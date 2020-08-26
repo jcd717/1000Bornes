@@ -1,21 +1,43 @@
 #sabot {
     display: grid;
-    grid-template-areas:    "sabotPile sabotDefausse"
+    grid-template-areas:    "sabotContour sabotContour"
                             "cartesRestantes ."
                             ;
     grid-template-rows: max-content;
-    grid-template-columns: max-content;
+    grid-template-columns: 1fr 1fr;
 }
-#sabot > .pile {
-    grid-area: sabotPile
+#sabot  .pile {
+    grid-area: sabotPile;
 }
-#sabot > .defausse {
-    grid-area: sabotDefausse
+#sabot  .defausse {
+    grid-area: sabotDefausse;
+    border: solid;
+    border-radius: 1em;
 }
-#sabot > img {
+#sabot  img {
     margin: var(--margin-cartes);
 }
 #cartesRestantes {
     grid-area: cartesRestantes;
+    border: ridge;
+    /* margin-left: calc(var(--demiLargeur) - 2ch); */
+    text-align: center;
     margin: auto;
+    margin-top: 0.3em;
+    padding-left: 1ch;
+    padding-right: 1ch;
 }
+#sabotContour {
+    grid-area: sabotContour;
+    border: solid;
+    /* border-radius: 1em; */
+    padding-top: 0.2em;
+
+    display: grid;
+    grid-template-areas: "sabotPile sabotDefausse";
+    grid-template-rows: max-content;
+    grid-template-columns: max-content;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+

@@ -128,6 +128,14 @@ prioritaire.close()
 del prioritaire
 
 
+def getLargeurCarte():
+    return _largeurCarte
+
+
+def getHauteurCarte():
+    return _hauteurCarte
+
+
 
 def rescaleImage(image:Carte,scale:float=1):
     """ Retourne une chaîne base64 après 'rescale' de l'image """
@@ -158,7 +166,7 @@ def makeTransparentEmptyImage(scale=1):
     return base64.b64encode(buffered.getvalue()).decode('ascii')
 
 
-def makeTransparentEmptyImageByHeight(hauteur:int):
+def makeTransparentEmptyImageByHeight(hauteur: int = _hauteurCarte):
     """ Alernative à makeTransparentEmptyImage() où on contraint la hauteur  """
     scale = hauteur / _hauteurCarte
     return makeTransparentEmptyImage(scale)

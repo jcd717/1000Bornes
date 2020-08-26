@@ -1,8 +1,10 @@
 <div id="sabotWrapper" style="display: flex; flex-direction: row;">
     <div id="sabot">
-        <img class="pile" src="{{url_for('static',filename='images/cartes/Dos.jpg')}}">
-        <img class="defausse" src="{{url_for('static',filename='images/cartes/Dos.jpg')}}">
-        
-        <label id="cartesRestantes">42</label>
+        <div id="sabotContour">
+            <img class="pile" src="{{url_for('static',filename='images/cartes/Dos.jpg')}}">
+            {# <img class="defausse" src="{{url_for('static',filename='images/cartes/Dos.jpg')}}"> #}
+            <img class="defausse" src="data:image;base64,{{g.imageDefausseVide}}">
+        </div>
+        <p id="cartesRestantes">10</p>
     </div>
 </div>
