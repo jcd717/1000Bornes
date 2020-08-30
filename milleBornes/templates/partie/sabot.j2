@@ -1,10 +1,9 @@
-<div id="sabotWrapper" style="display: flex; flex-direction: row;">
+<div id="sabotWrapper" style="display: flex; flex-flow: row nowrap;">
     <div id="sabot">
         <div id="sabotContour">
             <img class="pile" src="{{url_for('static',filename='images/cartes/Dos.jpg')}}">
-            {# <img class="defausse" src="{{url_for('static',filename='images/cartes/Dos.jpg')}}"> #}
-            <img class="defausse" src="data:image;base64,{{g.imageDefausseVide}}">
+            <img class="defausse" src="data:image;base64,{{g.imageCarteVide}}">
         </div>
-        <p id="cartesRestantes">10</p>
+        <p id="cartesRestantes">{{session.partie.tas|length}}</p>
     </div>
 </div>

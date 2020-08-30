@@ -352,7 +352,7 @@ LA MARQUE
 EXEMPLES DE MARQUES
 -------------------
 
-**<div style="text-align: center; ">à 4 joueurs (deux équipes)</div>**
+#### à 4 joueurs (deux équipes)
 
 ### Arrêt par épuisement du sabot. Personne n'ayant atteint 1 000 bornes :
 

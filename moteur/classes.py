@@ -1,24 +1,11 @@
 from enum import Enum, auto
 from abc import ABC, abstractmethod
-#from singleton_decorator import singleton
-
-
-class Global:
-    pass
+from .partie import Partie
 
 
 class Genre(Enum):
     MASCULIN = auto()
     FEMININ = auto()
-
-
-class Partie:
-    def __init__(self, nombreJoueurs=4):
-        self._nombreJoueurs = nombreJoueurs
-
-    @property
-    def nombreJoueurs(self):
-        return self._nombreJoueurs
 
 
 class Carte(ABC):  # ABC: Abstract Base Class = classe abstraite

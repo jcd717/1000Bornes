@@ -1,4 +1,5 @@
-from .classes import *
+from .classes import Attaque,Parade,Botte,Etape,Speciale,Carte
+from .partie import Partie
 
 
 # "cartes": dictionnaire de toutes les cartes (objets concrets) 

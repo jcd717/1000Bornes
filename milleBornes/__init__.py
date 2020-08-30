@@ -1,4 +1,4 @@
-from moteur import Prioritaire
+from moteur.classes import Prioritaire
 import os,re
 import markdown
 

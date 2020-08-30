@@ -70,6 +70,8 @@ nav {
     margin-bottom: 0.5rem;
     object-fit: none;
     justify-self: left;
+
+    cursor: pointer;
 }
 #infos {
     display: flex;
@@ -79,4 +81,50 @@ nav {
 }
 #remarque {
     color: red;
+}
+
+/* ZOOM */
+#overlay {
+    --duration: 0.3s;
+    position: absolute;
+    left: 0px;
+    top:0px;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+    display:none;
+    visibility: hidden; /* display n'interdit pas un reader d'aveugle de lire, visibility si! */
+    animation-name: zoom-in;
+    animation-duration: var(--duration);
+    
+}
+@keyframes zoom-in {
+    from {
+        transform:scale(0);
+        transform: rotate(0deg);
+    }
+    to {
+        transform:scale(1);
+        transform: rotate(360deg);
+    }
+}
+#overlay.did-zoom-out {
+    animation-name: zoom-out;
+    animation-duration: var(--duration);
+}
+@keyframes zoom-out {
+    from {
+        transform:scale(1);
+        transform: rotate(360deg);
+    }
+    to {
+        transform:scale(0);
+        transform: rotate(0deg);
+    }
+}
+#popup {
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+}
+#popupWrapper {
+    position: relative;
 }

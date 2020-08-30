@@ -4,3 +4,9 @@
 @import 'grilleMain6cartes.css';
 @import 'grilleMain7cartes.css';
 @import 'sabot.css';
+@import 'zoneDroite.css';
+
+body {
+    font-family: Tahoma Arial;
+    background-color: green;
+}

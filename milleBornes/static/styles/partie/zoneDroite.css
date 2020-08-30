@@ -1,0 +1,21 @@
+#zoneDroite {
+    display: grid;
+    grid-template-areas:    "sabotWrapper"
+                            "zoneDroiteSeparation"
+                            "grilleMain7cartes"
+                            ;
+    grid-template-rows: max-content;
+    grid-template-columns: max-content;
+}
+#sabotWrapper {
+    grid-area: sabotWrapper;
+}
+#grilleMain7cartes {
+    grid-area: grilleMain7cartes;
+    margin-left: var(--marge-sabot);
+}
+.horizontalLine {
+    grid-area: zoneDroiteSeparation;
+    border-top: medium ridge lightgray;
+    margin: var(--marge-sabot);
+}

@@ -14,9 +14,17 @@
         <img  src="{{ url_for('static', filename='images/dos.png') }}" >
     </div>
     <div id="menu">
-        {# <a class="aTagLikeButton" href="{{url_for('home.home')}}">Continuer la partie</a> #}
-        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=4)}}">Nouvelle Partie: 4 joueurs</a>
-        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=2)}}">Nouvelle Partie: 2 joueurs</a>
+        {% if g.continuer %}
+        <a class="aTagLikeButton" 
+        href="{{url_for('partie.game',nbJoueurs=session.partie.nombreJoueurs,continue=True)}}">
+        Continuer la partie ({{g.continuer}} joueurs)</a>
+        {%endif%}
+        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=4)}}"
+        {% if g.continuer %}
+        onclick="attention()"
+        {%endif%} >Nouvelle Partie: 4 joueurs</a>
+        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=2)}}">Nouvelle Partie: 2 joueurs
+        </a>
         <a class="aTagLikeButton" href="{{url_for('listeCartes.listeCartes')}}">{{g.listeCartes}}</a>
         <a class="aTagLikeButton" href="{{url_for('regles.regles')}}">REGLES du JEU</a>
     </div>
@@ -38,3 +46,5 @@
     </a>
 </div>
 {% endblock body %}
+
+

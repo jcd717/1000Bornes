@@ -20,13 +20,21 @@
             <div id="inventaire">
                 {% for c in pannel.cartes -%}
                 <div>
-                    <img id="image" src="data:image;base64,{{c.image}}">
-                    <div id="nom">{{c['carte'].nom}}</div><div id="nombre">{{c['carte'].getNombre()}}</div>
+                    <img id="image" zoom="{{url_for('static',filename='images/cartes/'+getFileNameFromObjectCarte(c.carte))}}" class="{{pannel.nomId}}"
+                        src="data:image;base64,{{c.image}}" onclick="zoomCarte(event);" alt="">
+                    <div id="nom">{{c['carte'].nom}}</div>
+                    <div id="nombre">{{c['carte'].getNombre()}}</div>
                 </div>
                 {% endfor %}
             </div>
         </div>
         {% endfor %}
+        {# Le zoom des cartes #}
+        <div id="overlay" onclick="closeZoomCarte();">
+            <div id="popupWrapper">
+                <img id="popup" alt="" src="{{url_for('static',filename='images/icone.gif')}}">
+            </div>
+        </div>
     </nav>
     <div id="infos">
         <div id="total">
@@ -37,7 +45,13 @@
         </div>
     </div>
     {{ homeButton() }}
+
 {% endblock body %}
+
+{% block javascriptsBody %}
+<script src="{{url_for('static',filename='js/zoom-carte.js')}}"></script>
+{% endblock %}
+
 
 {# Choix de la police (j'hésite entre 2) #}
 {# ------------------------------------- #}

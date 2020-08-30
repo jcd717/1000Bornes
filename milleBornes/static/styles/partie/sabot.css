@@ -13,6 +13,7 @@
     grid-area: sabotDefausse;
     border: solid;
     border-radius: 1em;
+    border-color: gray;
 }
 #sabot  img {
     margin: var(--margin-cartes);
@@ -20,24 +21,25 @@
 #cartesRestantes {
     grid-area: cartesRestantes;
     border: ridge;
-    /* margin-left: calc(var(--demiLargeur) - 2ch); */
     text-align: center;
     margin: auto;
     margin-top: 0.3em;
     padding-left: 1ch;
     padding-right: 1ch;
+    background-color: white;
 }
 #sabotContour {
     grid-area: sabotContour;
     border: solid;
-    /* border-radius: 1em; */
-    padding-top: 0.2em;
+    border-radius: 0.3em;
+    /* padding-top: 0.2em; */
+    padding: var(--marge-sabot);
+    background-color: black;
 
     display: grid;
     grid-template-areas: "sabotPile sabotDefausse";
     grid-template-rows: max-content;
     grid-template-columns: max-content;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 

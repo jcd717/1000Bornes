@@ -1,7 +1,8 @@
-from moteur import etapes, parades, attaques, bottes, cartes, getNombreTotalCartes, mapClassCarteConcerteToDictObjectsCarteConcrete
+from moteur import ( etapes, parades, attaques, bottes, cartes, getNombreTotalCartes, 
+                     mapClassCarteConcerteToDictObjectsCarteConcrete)
 from moteur.classes import *
 from flask import Blueprint, render_template, g, url_for
-from milleBornes import makeTransparentEmptyImageByHeight, resizeImage
+from milleBornes import makeTransparentEmptyImageByHeight, resizeImage, getFileNameFromObjectCarte
 
 #from lorem_text import lorem
 
@@ -81,7 +82,8 @@ del ordreCartes, ordreTypes, nomTypes, tc
 @bp.route('/Liste-des-cartes')
 def listeCartes():    
     g.html=html
+    #debug: getFileNameFromObjectCarte(html[0]['cartes'][0]['carte'])
     g.title = getTitle()
     g.total = getNombreTotalCartes()
 
-    return render_template('listeCartes.j2')
+    return render_template('listeCartes.j2', getFileNameFromObjectCarte=getFileNameFromObjectCarte)
