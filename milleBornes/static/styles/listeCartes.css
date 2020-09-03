@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Copperplate";
+    src: 
+        local("Copperplate"),
+        url('../fonts/OPTICopperplate.otf') format('opentype');
+}
 
 body {
     border: 0.7rem ridge green;

@@ -1,6 +1,7 @@
 from moteur.classes import Prioritaire
 import os,re
 import markdown
+from enum import Enum, auto
 
 from flask import Flask, request, send_from_directory, url_for
 
@@ -106,8 +107,52 @@ def create_app(test_config=None):
     from .partie import bp  # partie est un package
     app.register_blueprint(bp)
 
+    from .testAPI import bp
+    app.register_blueprint(bp,url_prefix='/testAPI')
+
+    from .api import bp
+    app.register_blueprint(bp, url_prefix='/api')
+
     return app
 
+
+class Option(Enum):
+    MOI = auto()
+    PARTENAIRE = auto()
+    ADVERSAIRE_DROITE = auto()
+    ADVERSAIRE_GAUCHE = auto()
+    MAIN = auto()
+    MAIN_A_DROITE = auto()
+    MAIN_A_GAUCHE = auto()
+
+
+
+def getOptions(session):
+    res=session.get('options')
+    return res if res else { 
+        Option.MOI: "Grand Dub", Option.PARTENAIRE: "Pote", 
+        Option.ADVERSAIRE_DROITE: "Max", Option.ADVERSAIRE_GAUCHE: "Sam", 
+        Option.MAIN: Option.MAIN_A_DROITE
+    }
+
+def optionsToJSON(session):
+    options = getOptions(session)
+    res='{"'+Option.MOI.name+'":"'+options[Option.MOI]+'"'
+    res+=',"'+Option.PARTENAIRE.name+'":"'+options[Option.PARTENAIRE]+'"'
+    res += ',"'+Option.ADVERSAIRE_DROITE.name+'":"'+options[Option.ADVERSAIRE_DROITE]+'"'
+    res += ',"'+Option.ADVERSAIRE_GAUCHE.name+'":"'+options[Option.ADVERSAIRE_GAUCHE]+'"'
+    res += ',"'+Option.MAIN.name+'":"'+options[Option.MAIN].name+'"'
+    res+='}'
+    return res
+
+def optionsJSONtoEnum(jsonDict):
+    res={}
+    res.update({Option.MOI: jsonDict[Option.MOI.name]})
+    res.update({Option.PARTENAIRE: jsonDict[Option.PARTENAIRE.name]})
+    res.update({Option.ADVERSAIRE_DROITE: jsonDict[Option.ADVERSAIRE_DROITE.name]})
+    res.update({Option.ADVERSAIRE_GAUCHE: jsonDict[Option.ADVERSAIRE_GAUCHE.name]})
+    res.update({Option.MAIN: Option[jsonDict[Option.MAIN.name]]})
+    return res
 
 
 def getFileNameFromObjectCarte(carte: Carte):

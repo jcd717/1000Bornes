@@ -4,6 +4,12 @@
         local("Nanum Brush Script"),
         url('../fonts/NanumBrushScript-Regular.ttf') format('truetype');
 }
+@font-face {
+    font-family: "DIN Condensed";
+    src: 
+        local("DIN Condensed"),
+        url('../fonts/DINCondensed-Bold.woff') format('woff');
+}
 
 body {
     /* border: 0.7rem ridge green;

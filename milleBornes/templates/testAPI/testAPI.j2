@@ -1,0 +1,11 @@
+{% extends "base.j2" %}
+
+{% block body %}
+Compteur = <span id="cpt"></span>
+<input type="hidden" id="urlAPI" value="{{url_for('testAPI.cptAPI')}}">
+{% endblock body %}
+
+
+{% block javascriptsBody %}
+<script src="{{url_for('static',filename='js/testAPI.js')}}"></script>
+{% endblock %}

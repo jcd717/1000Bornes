@@ -1,0 +1,47 @@
+{% extends "base.j2" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/options.css') }}">
+{% endblock stylesheets %}
+
+{%- block title -%}
+Options - {{super()}}
+{%- endblock title -%}
+
+{% block body %}
+
+<form method="post" onsubmit="return stockageLocal(this);">
+    <fieldset id="monEquipe" class="nom">
+        <legend>Mon équipe</legend>
+        <label for="moi" id="lmoi" class="labelN1">Moi:</label>
+        <input type="text" name="moi" id="moi" class="inputN1" value="{{g.options[Option.MOI]}}" required>
+        <label for="partenaire" id="lpartenaire" class="labelN2">Mon partenaire:</label>
+        <input type="text" name="partenaire" id="partenaire"  class="inputN2" value="{{g.options[Option.PARTENAIRE]}}" required>
+    </fieldset>
+    <fieldset id="adversaires" class="nom">
+        <legend>Mes adversaires</legend>
+        <label for="adversaireDroite" id="ladversaireDroite" class="labelN1">Adversaire de droite:</label>
+        <input type="text" name="adversaireDroite" id="adversaireDroite" class="inputN1" value="{{g.options[Option.ADVERSAIRE_DROITE]}}" required>
+        <label for="adversaireGauche" id="ladversaireGauche" class="labelN2">Adversaire de gauche:</label>
+        <input type="text" name="adversaireGauche" id="adversaireGauche" class="inputN2" value="{{g.options[Option.ADVERSAIRE_GAUCHE]}}" required>
+    </fieldset>
+    <fieldset id="main">
+        <legend>Position de mes cartes</legend>
+        <div> {# ce div est utilisé pour centrer dans le fieldset #}
+            <input type="radio" id="gauche" name="droiteOuGauche" value="gauche" {{isChecked(session,Option.MAIN_A_GAUCHE)}}>
+            <label for="gauche">à gauche</label>
+            <input type="radio" id="droite" name="droiteOuGauche" value="droite" {{isChecked(session,Option.MAIN_A_DROITE)}}>
+            <label for="droite">à droite</label>
+        </div>
+    </fieldset>
+    <div id="boutons">
+        <input type="submit" name="ok" value="OK">
+        <input type="submit" name="cancel" value="Annuler" formnovalidate onclick="cancelClicked();">
+    </div>
+</form>
+
+{% endblock body %}
+
+{% block javascriptsBody %}
+<script src="{{url_for('static',filename='js/options.js')}}"></script>
+{% endblock %}

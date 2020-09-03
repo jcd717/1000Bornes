@@ -1,6 +1,4 @@
-from flask import Blueprint, render_template, g, url_for
-import os
-import markdown
+from flask import Blueprint,render_template, g
 from milleBornes import getReglesMD
 
 bp = Blueprint('regles', __name__)

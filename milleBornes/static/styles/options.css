@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    font-family: sans-serif;
+}
+form {
+    display: grid;
+    grid-template-areas:
+        "monEquipe"
+        "adversaires"
+        "main"
+        "boutons";
+    grid-template-columns: max-content;
+    margin: auto;
+}
+
+.nom {
+    display: grid;
+    grid-template-areas:    "labelN1 inputN1"
+                            "labelN2 inputN2";
+    grid-template-columns: max-content max-content;
+    grid-template-rows: auto auto;
+}
+.labelN1 {
+    grid-area: labelN1;
+    margin-right: 1ch;
+}
+.labelN2 {
+    grid-area: labelN2;
+    margin-right: 1ch;
+}
+.inputN1 {
+    grid-area: inputN1;
+}
+.inputN2 {
+    grid-area: inputN2;
+}
+#monEquipe {
+    grid-area: monEquipe;
+}
+#adversaires {
+    grid-area: adversaires;
+}
+#main {
+    grid-area: main;
+}
+#main > div {
+    display: flex;
+    justify-content: center;
+}
+#boutons {
+    grid-area: boutons;
+    margin: auto;
+    margin-top: 0.4em;
+}
+.labelN1, .inputN1 {
+    margin-bottom: 0.5em;
+}
+
+input[type=text] {
+    font-size: 0.9em;
+}
+.labelN1, .labelN2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+legend {
+    font-style: oblique;
+}
+fieldset {
+    margin-bottom: 0.6em;
+}

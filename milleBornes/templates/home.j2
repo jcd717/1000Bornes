@@ -27,6 +27,7 @@
         </a>
         <a class="aTagLikeButton" href="{{url_for('listeCartes.listeCartes')}}">{{g.listeCartes}}</a>
         <a class="aTagLikeButton" href="{{url_for('regles.regles')}}">REGLES du JEU</a>
+        <a class="aTagLikeButton" href="{{url_for('home.options')}}">Options</a>
     </div>
     <div class="image-dos">
         <img  src="{{ url_for('static', filename='images/dos.png') }}" >
@@ -45,6 +46,9 @@
         <img  src="{{ url_for('static', filename='images/by-nc-sa.svg') }}" title="Pour Josette">
     </a>
 </div>
+<input type="hidden" id="apiURL" value="{{url_for('api.options')}}">
 {% endblock body %}
 
-
+{% block javascriptsBody %}
+<script src="{{url_for('static',filename='js/home.js')}}"></script>
+{% endblock %}
