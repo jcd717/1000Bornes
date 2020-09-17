@@ -56,7 +56,7 @@ class Partie:
         return len(self.tas)
 
     @property
-    def isTerminated(self):
+    def terminated(self):
         return self._terminated
                 
     

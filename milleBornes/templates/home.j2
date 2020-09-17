@@ -6,33 +6,6 @@
 
 {% block body %}
 
-<div id="boite">
-    <img src="{{ url_for('static', filename='images/boite.png') }}" >
-</div>
-<div id="container-menu">
-    <div class="image-dos">
-        <img  src="{{ url_for('static', filename='images/dos.png') }}" >
-    </div>
-    <div id="menu">
-        {% if g.continuer %}
-        <a class="aTagLikeButton" 
-        href="{{url_for('partie.game',nbJoueurs=session.partie.nombreJoueurs,continue=True)}}">
-        Continuer la partie ({{g.continuer}} joueurs)</a>
-        {%endif%}
-        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=4)}}"
-        {% if g.continuer %}
-        onclick="attention()"
-        {%endif%} >Nouvelle Partie: 4 joueurs</a>
-        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=2)}}">Nouvelle Partie: 2 joueurs
-        </a>
-        <a class="aTagLikeButton" href="{{url_for('listeCartes.listeCartes')}}">{{g.listeCartes}}</a>
-        <a class="aTagLikeButton" href="{{url_for('regles.regles')}}">REGLES du JEU</a>
-        <a class="aTagLikeButton" href="{{url_for('home.options')}}">Options</a>
-    </div>
-    <div class="image-dos">
-        <img  src="{{ url_for('static', filename='images/dos.png') }}" >
-    </div>
-</div>
 <div id="milleBornes">
     {# les commentaires HTML sont là pour simuler que tous <span> sont écrits sur la même ligne #}
         <span id="un" class="chiffre">1</span><!--
@@ -41,12 +14,41 @@
     --><span id="zero3" class="chiffre">0</span>
        <span id="bornes">BORNES</span>
 </div>
+<div id="container-menu">
+    <div class="image-dos">
+        <img  src="{{ url_for('static', filename='images/dos.png') }}" >
+    </div>
+    <div id="menu">
+        {% if g.continuer %}
+        <a class="aTagLikeButton"
+        href="{{url_for('partie.game',nbJoueurs=session.partie.nombreJoueurs,continue=True)}}">
+        Continuer la partie ({{g.continuer}} joueurs)</a>
+        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=session.partie.nombreJoueurs,cancel=True)}}">Annuler la partie en cours</a>
+        {# lien/bouton SCORE #}
+        {%else%}
+        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=4)}}">Nouvelle Partie: 4 joueurs</a>
+        <a class="aTagLikeButton" href="{{url_for('partie.game',nbJoueurs=2)}}">Nouvelle Partie: 2 joueurs</a>
+        {%endif%}
+        <a class="aTagLikeButton" href="{{url_for('listeCartes.listeCartes')}}">{{g.listeCartes}}</a>
+        <a class="aTagLikeButton" href="{{url_for('regles.regles')}}">REGLES du JEU</a>
+        <a class="aTagLikeButton" href="{{url_for('home.options')}}">Options</a>
+    </div>
+    <div class="image-dos">
+        <img  src="{{ url_for('static', filename='images/dos.png') }}" >
+    </div>
+</div>
+<div id="boite">
+    <img src="{{ url_for('static', filename='images/boite.png') }}" >
+</div>
 <div id="licence">
     <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">
         <img  src="{{ url_for('static', filename='images/by-nc-sa.svg') }}" title="Pour Josette">
     </a>
 </div>
-<input type="hidden" id="apiURL" value="{{url_for('api.options')}}">
+
+<input type="hidden" id="urlApiOptions" value="{{url_for('api.options')}}">
+{# <input type="hidden" id="urlApiGameTerminated" value="{{url_for('api.isGameTerminated')}}"> #}
+
 {% endblock body %}
 
 {% block javascriptsBody %}

@@ -1,0 +1,13 @@
+{% from 'tools.j2' import homeButton %}
+
+<div id="menu">
+   {{ homeButton() -}}
+   <div id="menu-burger">
+      <input type="checkbox" id="menu-checkbox"/>
+      <label for="menu-checkbox" class="glyph-home">&#xF0C9;</label>
+      <ul id="options-menu">
+         <li><a href="/err">un peu de triche</a></li>
+         <li><a href="/err">je sais plus</a></li>
+      </ul>
+   </div>
+</div>

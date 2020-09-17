@@ -10,7 +10,7 @@ bp = Blueprint('home', __name__)
 def home():
     g.listeCartes=getTitle()
     g.continuer=None
-    if session.get('partie') and not session['partie'].isTerminated:
+    if session.get('partie') and not session['partie'].terminated:
         g.continuer=session['partie'].nombreJoueurs
 
     return render_template('home.j2')

@@ -1,0 +1,35 @@
+.glyph-home {
+    color: black;
+    background-color: white;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+.glyph-home:hover , #menu-checkbox:checked ~ .glyph-home{
+    background-color: silver;
+}
+#div-home {
+    display: inline;
+    margin-right: 4px;
+}
+#menu-checkbox {
+    display: none;
+}
+#menu {
+    display: flex;
+}
+#options-menu {
+    list-style-type: none;
+    display: none;
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    background-color: silver;
+    padding: 7px;
+    margin: 7px;
+    border: solid;
+    font-size: initial;
+}
+#menu-checkbox:checked ~ #options-menu {
+    display: inherit;
+    visibility: visible;
+}

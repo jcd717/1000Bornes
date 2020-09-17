@@ -13,3 +13,9 @@ def options():
     """
     session['options']=optionsJSONtoEnum(request.get_json())
     return {}
+
+
+# @bp.route('/isGameTerminated')
+# def isGameTerminated():
+#     """ retrourne {"result":true} (JSON) si la partie est terminée ou n'existe pas """
+#     return {'result': not(session.get('partie')!=None and not session['partie'].isTerminated) }

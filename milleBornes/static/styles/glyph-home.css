@@ -16,6 +16,7 @@
     background-color: gray;
     text-decoration: none;
     padding: 0.2em;
+    border: ridge;
 }
 .glyph-home:hover{
     background-color: black;

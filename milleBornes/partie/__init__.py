@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, g, url_for, redirect, session
+from flask import Blueprint, render_template, g, url_for, redirect, session, request
 
 #from moteur import cartes
 #from moteur.classes import *
@@ -21,11 +21,16 @@ def game(nbJoueurs=4):
     if nbJoueurs not in (2,4):
         return redirect(url_for('home.home'))
 
+    if request.args.get('cancel'):
+        session.pop('partie',None)
+        return redirect(url_for('home.home'))
+
+# sans doute tout à changer..........
 # vérifier le request parameter "continuer" et alors vérifier que la session n'a pas expirée (donc réduire sa durée pour le test)
     if not session.get('partie'):
         session['partie'] = Partie(nbJoueurs)
-    elif not session['partie'].isTerminated:
-        print('pas fini')
+    # elif not session['partie'].isTerminated:
+    #     print('pas fini')
 
     g.titre = "Partie à {} joueurs".format(nbJoueurs)
     

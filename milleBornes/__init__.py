@@ -107,8 +107,8 @@ def create_app(test_config=None):
     from .partie import bp  # partie est un package
     app.register_blueprint(bp)
 
-    from .testAPI import bp
-    app.register_blueprint(bp,url_prefix='/testAPI')
+    # from .testAPI import bp
+    # app.register_blueprint(bp,url_prefix='/testAPI')
 
     from .api import bp
     app.register_blueprint(bp, url_prefix='/api')

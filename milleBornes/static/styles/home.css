@@ -63,6 +63,18 @@ body {
 .aTagLikeButton:hover {
     color: green;
 }
+button {
+    padding: 0.5rem 0.4rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    font-family: inherit;
+    font-size: inherit;
+    color: blue;
+    cursor: pointer;
+}
+button:hover {
+    color: green;
+}
 #milleBornes {
     text-align: center;
     font-size: 8em;

@@ -1,7 +1,7 @@
 #sabot {
     display: grid;
     grid-template-areas:    "sabotContour sabotContour"
-                            "cartesRestantes ."
+                            "cartesRestantes menu"
                             ;
     grid-template-rows: max-content;
     grid-template-columns: 1fr 1fr;
@@ -41,5 +41,11 @@
     grid-template-rows: max-content;
     grid-template-columns: max-content;
 }
-
+#menuWrapper {
+    grid-area: menu;
+    display: flex;
+    justify-content: center;
+    margin-top:0.7em;
+    font-size: x-small;
+}
 
